@@ -35,11 +35,11 @@ app.use((req, res, next) => {
 
 app.options("*", cors(corsOptions));
 
-// app.post("/", (req, res) => {
-//   console.log("Local Backend Called");
-//   let data = req.body.name;
-//   res.send(data);
-// });
+app.post("/productLink", (req, res) => {
+  console.log("Local Backend Called");
+  let data = req.body.name;
+  res.send(data);
+});
 
 app.get("/", (req, res) => {
   res.send("ShopSleuth is working!!");
