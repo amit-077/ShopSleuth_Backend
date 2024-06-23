@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 app.options("*", cors(corsOptions));
 
-app.post("/productLink", (req, res) => {
+app.post("/", (req, res) => {
   console.log("Local Backend Called");
   let data = req.body.name;
   res.send(data);
@@ -151,7 +151,7 @@ const flipkartFetch = async (link) => {
   }
 };
 
-app.post("/", async (req, res) => {
+app.post("/productLink", async (req, res) => {
   try {
     let link = req.body.productLink;
     console.log(link);
