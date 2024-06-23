@@ -26,8 +26,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
 
-app.get("/", (req, res) => {
-  res.send("Hello");
+app.post("/", (req, res) => {
+  let data = req.body.name;
+  res.send(data);
 });
 
 const flipkartFetch = async (link) => {
