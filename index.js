@@ -35,11 +35,11 @@ app.use((req, res, next) => {
 
 app.options("*", cors(corsOptions));
 
-app.post("/", (req, res) => {
-  console.log("Local Backend Called");
-  let data = req.body.name;
-  res.send(data);
-});
+// app.post("/", (req, res) => {
+//   console.log("Local Backend Called");
+//   let data = req.body.name;
+//   res.send(data);
+// });
 
 app.get("/", (req, res) => {
   res.send("ShopSleuth is working!!");
@@ -151,7 +151,7 @@ const flipkartFetch = async (link) => {
   }
 };
 
-app.post("/productLink", async (req, res) => {
+app.post("/", async (req, res) => {
   try {
     let link = req.body.productLink;
     console.log(link);
