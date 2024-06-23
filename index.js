@@ -31,6 +31,10 @@ app.post("/", (req, res) => {
   res.send(data);
 });
 
+app.get('/', (req,res)=>{
+  res.send("ShopSleuth is working!!");
+})
+
 const flipkartFetch = async (link) => {
   try {
     if (link.includes("flipkart")) {
