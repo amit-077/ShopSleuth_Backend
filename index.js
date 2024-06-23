@@ -21,20 +21,29 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true, // Allow credentials (cookies, HTTP authentication)
   optionsSuccessStatus: 204,
-  preflightContinue: false
+  preflightContinue: false,
 };
 
 app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.url}`);
+  console.log(`Origin: ${req.get("Origin")}`);
+  console.log(`Headers: ${JSON.stringify(req.headers)}`);
+  next();
+});
+
 app.options("*", cors(corsOptions));
 
 app.post("/", (req, res) => {
+  console.log("Local Backend Called");
   let data = req.body.name;
   res.send(data);
 });
 
-app.get('/', (req,res)=>{
+app.get("/", (req, res) => {
   res.send("ShopSleuth is working!!");
-})
+});
 
 const flipkartFetch = async (link) => {
   try {
