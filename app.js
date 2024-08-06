@@ -41,8 +41,8 @@ app.post("/", (req, res) => {
   res.send(data);
 });
 
-app.get("/helloworld", (req,res)=>{
-  res.send({message: "Hello world from new deployment"});
+app.get("/heybro", (req,res)=>{
+  res.send({message: "Hey Bro from new deployment"});
 })
 
 app.get("/", (req, res) => {
