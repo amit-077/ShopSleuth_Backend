@@ -18,7 +18,7 @@ connectDB();
 const corsOptions = {
   origin: "*", // Restrict to your front-end domain
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: ["Content-Type", "Authorization"],
+  allowedHeaders: "*",
   credentials: true, // Allow credentials (cookies, HTTP authentication)
   optionsSuccessStatus: 204,
   preflightContinue: false,
