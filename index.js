@@ -16,7 +16,7 @@ app.use(express.json());
 connectDB();
 
 const corsOptions = {
-  origin: ["*"], // Restrict to your front-end domain
+  origin: "*", // Restrict to your front-end domain
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true, // Allow credentials (cookies, HTTP authentication)
