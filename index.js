@@ -16,24 +16,24 @@ app.use(express.json());
 connectDB();
 
 const corsOptions = {
-  origin: "*", // Restrict to your front-end domain
+  origin: "*", // Restrict to your front-end domain if needed
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "*",
-  credentials: true, // Allow credentials (cookies, HTTP authentication)
-  optionsSuccessStatus: 204,
+  optionsSuccessStatus: 200, // Change to 200
   preflightContinue: false,
 };
 
 app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
-  console.log(`Incoming request: ${req.method} ${req.url}`);
-  console.log(`Origin: ${req.get("Origin")}`);
-  console.log(`Headers: ${JSON.stringify(req.headers)}`);
+  res.header("Access-Control-Allow-Origin", "*"); // Replace with your front-end URL
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
   next();
 });
-
-app.options("*", cors(corsOptions));
 
 app.post("/", (req, res) => {
   console.log("Local Backend Called");
